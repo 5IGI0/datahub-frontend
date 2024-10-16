@@ -43,6 +43,7 @@ function HttpSearchMenu({ setServices, setQuery }) {
     const onSubmit = (e) => {
         e.preventDefault()
         setIsLoading(true)
+
         const values = inputs2object(e.target)
 
         var params = ""
@@ -75,9 +76,8 @@ function HttpSearchMenu({ setServices, setQuery }) {
                 setError(String(r))
                 setServices(null)
             }).
-            finally(
-                setIsLoading(false)
-            )
+            finally(() => 
+                setIsLoading(false))
     }
 
     return <form onSubmit={onSubmit} id="httpSearchForm">
