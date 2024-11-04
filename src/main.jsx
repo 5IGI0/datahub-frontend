@@ -4,6 +4,7 @@ import Root from './Root.jsx'
 import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import HttpServicesPage from './pages/http_services/page.jsx';
 import { Homepage } from './pages/homepage/page.jsx';
+import { SubDomainsPage } from './pages/subdomains/page.jsx'
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "http_services",
         element: <HttpServicesPage/>
+      },
+      {
+        path: "subdomains",
+        element: <SubDomainsPage/>
       }
     ]
   },

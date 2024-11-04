@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { RadioChoice, getRadioChoiceValue } from "../../../components/RadioChoice"
+import { RadioChoice } from "../../../components/RadioChoice"
 import { CertificateFilter, HeaderFilter, MetaFilter, RobotTxtFilter } from "./AdditionalFilters";
 import { inputs2object } from "../../../utils";
+import { SearchButton } from "../../../components/SearchButton"
 
 const input_id_2_param = {
     "actual-path": "path",
@@ -128,12 +129,7 @@ function HttpSearchMenu({ setServices, setQuery }) {
         {additionalFilter == "header" && <HeaderFilter />}
 
         <div className="col-sm-12 mt-3 d-flex justify-content-center">
-            <button type="submit" className="btn btn-primary" disabled={isLoading}>
-                {isLoading ? <>
-                    <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>
-                    <span role="status"> Loading...</span></> :
-                    <>Search</>}
-            </button>
+            <SearchButton isLoading={isLoading}/>
         </div>
 
         {error != null && <div className="mt-3 alert alert-danger" role="alert">
